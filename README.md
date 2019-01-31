@@ -36,7 +36,7 @@ Analyze resource utilization and consumption
 - [Utilize Log Search query functions](http://bit.ly/2KZvEy5)
 - [View alerts in Log Analytics](http://bit.ly/2JB7Gnm)
 
-Create and Configure storage accounts)
+Create and Configure storage accounts
 - [Configure network access to the storage account](http://bit.ly/2y2QWBo)
 - [Create and configure storage account](http://bit.ly/2xZOADt)
 - [Generate shared access signature](http://bit.ly/2y02GEX)
@@ -45,24 +45,24 @@ Create and Configure storage accounts)
 - [Monitor activity log by using Log Analytics](http://bit.ly/2y0qs3G)
 - [Implement Azure storage replication](http://bit.ly/2xYmBnO
 
-Create and configure a Virtual Machine (VM) for Windows and Linux)
+Create and configure a Virtual Machine (VM) for Windows and Linux
 - [Configure high availability](http://bit.ly/2y0f7AC)
 - [Configure monitoring, networking, storage, and virtual machine size](http://bit.ly/2xYN3xA)
-- [Deploy and configure scale sets](http://bit.ly/2xYO5cW
+- [Deploy and configure scale sets](http://bit.ly/2xYO5cW)
 
-Automate deployment of Virtual Machines (VMs))
+Automate deployment of Virtual Machines (VMs)
 - [Modify Azure Resource Manager (ARM) template](http://bit.ly/2y0Nzej)
 - [Configure location of new VMs](http://bit.ly/2xYOxb8)
 - [Configure VHD template](http://bit.ly/2y0frPQ)
 - [Deploy from template](http://bit.ly/2xZkJuN)
 - [Save a deployment as an ARM template](http://bit.ly/2y2TmjM)
-- [Deploy Windows and Linux VMs](Http://bit.ly/2xZkJuN http://bit.ly/2y2TdfU
+- Deploy [Windows](Http://bit.ly/2xZkJuN) and [Linux VMs](http://bit.ly/2y2TdfU)
 
 Create connectivity between virtual networks)
 - [Create and configure VNET peering](http://bit.ly/2NqMu5P)
 - [Create and configure VNET to VNET](http://bit.ly/2uwAd8J)
 - [Verify virtual network connectivity](http://bit.ly/2muFbP7)
-- [create virtual network gateway](http://bit.ly/2LpVkzQ
+- [create virtual network gateway](http://bit.ly/2LpVkzQ)
 
 Implement and manage virtual networking)
 - [Configure private and public IP addresses, network routes, network interface, subnets, and virtual network](http://bit.ly/2xUCgUQ)
@@ -129,14 +129,14 @@ Implement Multi-Factor Authentication (MFA))
 
 ## Create and Deploy Apps (5-10%)
 
-Create web apps by using PaaS)
+Create web apps by using PaaS
 - [Create an Azure app service Web App](http://bit.ly/2FwLGLF)
 - [Create documentation for the API](http://bit.ly/2FwwEWn)
 - [Create an App Service Web App for containers](http://bit.ly/2FskQnY)
 - [Create an App Service background task by using WebJobs](http://bit.ly/2Fu4XNX)
 - [Enable diagnostics logging](http://bit.ly/2FueHHX)
 
-Design and develop apps that run in containers)
+Design and develop apps that run in containers
 - [Configure diagnostic settings on resources](http://bit.ly/2FvtylC)
 - [Create a container image by using a Docker file](http://bit.ly/2FuoT3a)
 - [Create an Azure Container Service (ACS/AKS)](http://bit.ly/2Fueogh http://bit.ly/2FueO6m)
@@ -156,7 +156,7 @@ Implement secure data solutions)
 - [Encrypt and decrypt data at rest and in transit](http://bit.ly/2ykKndV)
 - [Encrypt data with Always Encrypted](http://bit.ly/2yeHjQ7)
 - [Implement Azure Confidential Compute and SSL/TLS communications](http://bit.ly/2ycu6Yk)
-- [Create, read, update, and delete keys, secrets, and certificates by using the KeyVault API](http://bit.ly/2y8JGUN
+- [Create, read, update, and delete keys, secrets, and certificates by using the KeyVault API](http://bit.ly/2y8JGUN)
 
 ## Develop for the Cloud (20-25%)
 Configure a message-based integration architecture)
@@ -164,6 +164,6 @@ Configure a message-based integration architecture)
 - [Create and configure Notification Hub, Event Hub, and Service Bus](http://bit.ly/2y545Ky)
 - [Configure queries across multiple products](http://bit.ly/2y2q6tn)
 
-Develop for autoscaling)
+Develop for autoscaling
 - [Implement autoscaling rules and patterns (schedule, operational/system metrics, code that addresses singleton application instances),	http://bit.ly/2y0ANN6 http://bit.ly/2y0B4zC)
 - [Implement code that addresses transient state](http://bit.ly/2y2lCmu)
