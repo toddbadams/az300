@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_em_post_name": {
+            "value": null
+        },
+        "serverfarms_UKSouthPlan_name": {
+            "value": null
+        },
+        "config_web_name": {
+            "value": null
+        },
+        "databaseAccounts_em_db_name": {
+            "value": null
+        },
+        "storageAccounts_emposta750_name": {
+            "value": null
+        },
+        "components_em_app_insights_name": {
+            "value": null
+        },
+        "namespaces_em_service_bus_name": {
+            "value": null
+        },
+        "queues_em_queue_name": {
+            "value": null
+        },
+        "alertrules_Failure_Anomalies___em_app_insights_name": {
+            "value": null
+        },
+        "hostNameBindings_em_post.azurewebsites.net_name": {
+            "value": null
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "value": null
+        }
+    }
+}

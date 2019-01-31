@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+***********************************************************************************************
+Microsoft.VisualStudio.Azure.Fabric.Application.targets
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+This file defines the steps in the standard build process for building and packaging Service Fabric applications.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <PackageLocation Condition=" '$(PackageLocation)' == '' ">pkg\$(Configuration)</PackageLocation>
+    <PackageBehavior Condition=" '$(PackageBehavior)' == '' ">All</PackageBehavior>
+    <AddCorrelationIds Condition=" '$(AddCorrelationIds)' == '' ">true</AddCorrelationIds>
+    <DockerPublishDirectory Condition=" '$(DockerPublishDirectory)' == '' ">obj\Docker\publish</DockerPublishDirectory>
+    <DockerEmptyDirectory Condition=" '$(DockerEmptyDirectory)' == '' ">obj\Docker\empty</DockerEmptyDirectory>
+
+    <!-- Indicates the path to a file that will be written to with the names of Docker images built as part of the packaging. -->
+    <BuiltDockerImagesFilePath Condition=" '$(BuiltDockerImagesFilePath)' == '' ">$(BaseIntermediateOutputPath)\$(Configuration)\BuiltDockerImages.txt</BuiltDockerImagesFilePath>
+    <!-- Setting this flag to true will package everything in the output bin folder instead of custom packaging logic for non-packageable services (non core and non asp services) -->
+    <PackageOutputFolder Condition=" '$(PackageOutputFolder)' == '' ">false</PackageOutputFolder>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BuildTasksAssembly>Microsoft.VisualStudio.Azure.Fabric.BuildTasks.dll</BuildTasksAssembly>
+    <ApplicationPackageRootFolder>ApplicationPackageRoot</ApplicationPackageRootFolder>
+    <ApplicationManifestFilePath>$(ApplicationPackageRootFolder)\ApplicationManifest.xml</ApplicationManifestFilePath>
+    <ServicePackageRootFolder>PackageRoot</ServicePackageRootFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <IncludeInPackagePaths Condition=" '$(PackageBehavior)' == 'Minimal' "
+                           Include="$(IncludeInPackage)" />
+  </ItemGroup>
+
+  <UsingTask TaskName="AddCorrelationIds" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="FilterPackageFiles" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="FindServiceManifests" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="FindTargetPath" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="GetApplicationParametersFiles" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="GetPackageRootFiles" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="GetServiceProjectReferences" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="ValidatePackageSettings" AssemblyFile="$(BuildTasksAssembly)" />
+  <UsingTask TaskName="VerifyVersionCompatibility" AssemblyFile="$(BuildTasksAssembly)" />
+
+  <Target Name="CreateManifestResourceNames" />
+  <Target Name="CoreCompile" />
+
+  <ItemDefinitionGroup>
+    <ProjectReference>
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+
+  <PropertyGroup>
+    <PackageAction>Package</PackageAction>
+    <PackageDependsOn>
+      ValidatePackageSettings;
+      CleanBuildAssets;
+      Build;
+      CollectServiceCodeFiles;
+      PackageServices;
+      PackageDeployableServices;
+      PackagePublishableServices;
+      PackageContainerServices;
+      PackageApplication;
+      AddCorrelationIds;
+      CollectPackageFiles;
+    </PackageDependsOn>
+  </PropertyGroup>
+
+  <!-- Generates a Service Fabric application package for this project. -->
+  <Target Name="Package" DependsOnTargets="$(PackageDependsOn)" Returns="@(_AllPackageFiles)" />
+
+  <Target Name="ValidatePackageSettings">
+    <ValidatePackageSettings PackageBehavior="$(PackageBehavior)" IncludeInPackage="$(IncludeInPackage)" />
+  </Target>
+
+  <!-- Adds a metadata value to each ProjectReference indicating what the project's ServiceManifestName is. -->
+  <!-- Needs ResolveProjectReferences to run first to ensure ProjectReferenceWithConfiguration has been populated. -->
+  <Target Name="GetServiceProjectReferences"
+          DependsOnTargets="ResolveProjectReferences"
+          BeforeTargets="Build"
+          Condition=" '@(ProjectReference)' != '' ">
+
+    <GetServiceProjectReferences ProjectReferences="@(ProjectReference)"
+                                 ProjectReferencesWithConfiguration="@(ProjectReferenceWithConfiguration)"
+                                 ServicePackageRootFolder="$(ServicePackageRootFolder)"
+                                 ApplicationManifestPath="$(ApplicationManifestFilePath)"
+                                 IncludeInPackagePaths="@(IncludeInPackagePaths)"
+                                 PackageBehavior="$(PackageBehavior)"
+                                 Configuration="$(Configuration)">
+      <Output TaskParameter="ServiceProjectReferences" ItemName="ServiceProjectReference" />
+      <Output TaskParameter="DeployableServiceProjectReferences" ItemName="_DeployableServiceProjectReference" />
+      <Output TaskParameter="PublishableServiceProjectReferences" ItemName="_PublishableServiceProjectReference" />
+      <Output TaskParameter="ContainerServiceProjectReferences" ItemName="ContainerServiceProjectReference" />
+    </GetServiceProjectReferences>
+
+    <ItemGroup>
+      <ServiceProjectReferencesWithCodePackage Include="@(ServiceProjectReference)"
+                                               Condition=" '%(IncludeServiceInPackage)' == 'true' and '%(IncludeCodePackage)' == 'true' " />
+
+      <DeployableServiceProjectReference Include="@(_DeployableServiceProjectReference)">
+        <PublishUrl>$([System.IO.Path]::GetFullPath('$(PackageLocation)\%(_DeployableServiceProjectReference.ServiceManifestName)\%(_DeployableServiceProjectReference.CodePackageName)'))</PublishUrl>
+      </DeployableServiceProjectReference>
+
+      <PublishableServiceProjectReference Include="@(_PublishableServiceProjectReference)">
+        <PublishDir>$([System.IO.Path]::GetFullPath('$(PackageLocation)\%(_PublishableServiceProjectReference.ServiceManifestName)\%(_PublishableServiceProjectReference.CodePackageName)'))</PublishDir>
+      </PublishableServiceProjectReference>
+
+      <AllServiceProjectsWithMetadata Include="@(ServiceProjectReference);@(DeployableServiceProjectReference);@(PublishableServiceProjectReference);@(ContainerServiceProjectReference)" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Ensures that assets from a previous build have been cleaned. -->
+  <Target Name="CleanBuildAssets">
+    <Exec Command="rmdir /Q /S &quot;$(PackageLocation)&quot;" Condition="Exists('$(PackageLocation)')" />
+    <Delete Files="$(BuiltDockerImagesFilePath)" Condition="Exists('$(BuiltDockerImagesFilePath)')" />
+  </Target>
+
+  <Target Name="CollectServiceCodeFiles"
+          Condition=" '@(ServiceProjectReferencesWithCodePackage)' != '' ">
+    <CallTarget Targets="CollectServiceCodeFilesWithCustomPackage" Condition="$(PackageOutputFolder) != 'true'" />
+    <CallTarget Targets="CollectServiceCodeFilesFromOutputFolder" Condition="$(PackageOutputFolder) == 'true'" />
+  </Target>
+
+  <!-- Collect service code files for service projects by collecting all the files from bin folder. -->
+  <Target Name="CollectServiceCodeFilesFromOutputFolder"
+          Outputs="%(ServiceProjectReferencesWithCodePackage.Identity)">
+
+    <PropertyGroup>
+      <_ServiceProject>%(ServiceProjectReferencesWithCodePackage.Identity)</_ServiceProject>
+      <_ServiceManifestName>%(ServiceProjectReferencesWithCodePackage.ServiceManifestName)</_ServiceManifestName>
+      <_CodePackageName>%(ServiceProjectReferencesWithCodePackage.CodePackageName)</_CodePackageName>
+    </PropertyGroup>
+
+    <MSBuild
+        Projects="$(_ServiceProject)"
+        Targets="GetTargetPath"
+        Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)">
+      <Output TaskParameter="TargetOutputs" ItemName="ReferenceTargetPathItem" />
+    </MSBuild>
+
+    <PropertyGroup>
+      <ProjectTargetDir Condition=" '@(ReferenceTargetPathItem)' != '' ">%(RootDir)%(Directory)</ProjectTargetDir>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ServiceCodeFiles Include="$(ProjectTargetDir)**\*">
+      </ServiceCodeFiles>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ServiceCodeFiles>
+        <RelativePackagePath>$(_ServiceManifestName)\$(_CodePackageName)\$([System.String]::Copy('%(FullPath)').Replace($(ProjectTargetDir), ''))</RelativePackagePath>
+      </ServiceCodeFiles>
+    </ItemGroup>
+  </Target>
+
+  <!-- Collect service code files for service projects whose output is generated by the Build target. -->
+  <Target Name="CollectServiceCodeFilesWithCustomPackage"
+          Outputs="%(ServiceProjectReferencesWithCodePackage.Identity)">
+    <PropertyGroup>
+      <_ServiceProject>%(ServiceProjectReferencesWithCodePackage.Identity)</_ServiceProject>
+      <_ServiceManifestName>%(ServiceProjectReferencesWithCodePackage.ServiceManifestName)</_ServiceManifestName>
+      <_CodePackageName>%(ServiceProjectReferencesWithCodePackage.CodePackageName)</_CodePackageName>
+    </PropertyGroup>
+
+    <MSBuild
+        Projects="$(_ServiceProject)"
+        Targets="GetTargetPath"
+        Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)">
+      <Output TaskParameter="TargetOutputs" ItemName="ReferenceTargetPathItem" />
+    </MSBuild>
+
+    <PropertyGroup>
+      <ProjectTargetDir Condition=" '@(ReferenceTargetPathItem)' != '' ">%(RootDir)%(Directory)</ProjectTargetDir>
+      <ProjectEntryPoint Condition=" '@(ReferenceTargetPathItem)' != '' ">%(Filename)%(Extension)</ProjectEntryPoint>
+    </PropertyGroup>
+
+    <MSBuild
+        Projects="$(_ServiceProject)"
+        Targets="
+          BuiltProjectOutputGroup;
+          DebugSymbolsProjectOutputGroup;
+          DocumentationProjectOutputGroup;
+          SatelliteDllsProjectOutputGroup;
+          SGenFilesOutputGroup"
+        Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)"
+        ContinueOnError="false">
+      <Output TaskParameter="TargetOutputs" ItemName="OutputGroups" />
+    </MSBuild>
+    <ItemGroup>
+      <_ServiceFiles Include="@(OutputGroups)">
+        <TargetPath>%(OutputGroups.TargetPath)</TargetPath>
+      </_ServiceFiles>
+    </ItemGroup>
+    <MSBuild
+        Projects="$(_ServiceProject)"
+        Targets="SourceFilesProjectOutputGroup"
+        Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)"
+        ContinueOnError="false">
+      <Output TaskParameter="TargetOutputs" ItemName="SourceFilesOutputGroup" />
+    </MSBuild>
+    <!-- Add the app config file from SourceFilesOutputGroup -->
+    <ItemGroup>
+      <_ServiceFiles Include="$(ProjectTargetDir)%(TargetPath)" Condition=" '%(SourceFilesOutputGroup.Filename)%(SourceFilesOutputGroup.Extension)' == 'app.config' And '%(SourceFilesOutputGroup.TargetPath)' == '$(ProjectEntryPoint).config' ">
+        <TargetPath>%(TargetPath)</TargetPath>
+      </_ServiceFiles>
+    </ItemGroup>
+    <!-- ===============================
+         Get all the dependency output groups for the service project
+         =============================== -->
+    <MSBuild
+        Projects="$(_ServiceProject)"
+        Targets="
+          BuiltProjectOutputGroupDependencies;
+          DebugSymbolsProjectOutputGroupDependencies;
+          DocumentationProjectOutputGroupDependencies;
+          SGenFilesOutputGroupDependencies"
+        ContinueOnError="false"
+        Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)">
+      <Output TaskParameter="TargetOutputs" ItemName="OutputGroupsDependencies" />
+    </MSBuild>
+
+    <!-- Figure out the dependencies that need to be copied by checking if the dependency exists
+         in the target directory. -->
+    <ItemGroup>
+      <CopyLocalDependencies Include="@(OutputGroupsDependencies)" Condition="Exists('$(ProjectTargetDir)%(Filename)%(Extension)') And ('%(OutputGroupsDependencies.CopyLocal)' != 'false' Or '%(OutputGroupsDependencies.NuGetPackageId)' != '')" />
+    </ItemGroup>
+    <ItemGroup>
+      <_ServiceFiles Include="@(CopyLocalDependencies)" Condition=" '@(CopyLocalDependencies)' != '' ">
+        <TargetPath>%(FileName)%(Extension)</TargetPath>
+      </_ServiceFiles>
+    </ItemGroup>
+    <!-- Get all satellite dependencies -->
+    <MSBuild
+      Projects="$(_ServiceProject)"
+      Targets="SatelliteDllsProjectOutputGroupDependencies"
+      ContinueOnError="false"
+      Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)">
+      <Output TaskParameter="TargetOutputs" ItemName="SatelliteOutputGroupsDependencies" />
+    </MSBuild>
+    <FindTargetPath Files="@(SatelliteOutputGroupsDependencies)" FindUnderTargetDir="$(ProjectTargetDir)">
+      <Output TaskParameter="ItemWithTargetPath" ItemName="SatelliteOutputGroupsDependenciesWithTargetPath" />
+    </FindTargetPath>
+    <ItemGroup>
+      <_ServiceFiles Include="@(SatelliteOutputGroupsDependenciesWithTargetPath)" Condition=" '@(SatelliteOutputGroupsDependenciesWithTargetPath)' != '' ">
+        <TargetPath>%(TargetPath)</TargetPath>
+      </_ServiceFiles>
+    </ItemGroup>
+    <!-- Get all CopyToOutput items from the service project -->
+    <MSBuild
+        Projects="$(_ServiceProject)"
+        Targets="GetCopyToOutputDirectoryItems"
+        ContinueOnError="false"
+        Properties="%(ServiceProjectReferencesWithCodePackage.CommonBuildProperties)">
+      <Output TaskParameter="TargetOutputs" ItemName="ProjectCopyToOutputItems" />
+    </MSBuild>
+    <ItemGroup>
+      <_ServiceFiles Include="$(ProjectTargetDir)%(ProjectCopyToOutputItems.TargetPath)"
+                     Condition=" '@(ProjectCopyToOutputItems)' != '' ">
+        <TargetPath>%(TargetPath)</TargetPath>
+      </_ServiceFiles>
+    </ItemGroup>
+
+    <RemoveDuplicates Inputs="@(_ServiceFiles)">
+      <Output TaskParameter="Filtered" ItemName="ServiceCodeFiles" />
+    </RemoveDuplicates>
+
+    <ItemGroup>
+      <ServiceCodeFiles>
+        <RelativePackagePath>$(_ServiceManifestName)\$(_CodePackageName)\%(TargetPath)</RelativePackagePath>
+      </ServiceCodeFiles>
+    </ItemGroup>
+  </Target>
+
+
+  <!-- Packages all the files from the package root folder of the referenced service projects as well as the collected code package files from service projects
+       whose output is produced by the Build target. -->
+  <Target Name="PackageServices" Condition=" '@(AllServiceProjectsWithMetadata)' != '' ">
+    <GetPackageRootFiles ProjectPath="%(AllServiceProjectsWithMetadata.Identity)"
+                         PackageRootFolderPath="$(ServicePackageRootFolder)"
+                         DestinationPath="%(AllServiceProjectsWithMetadata.ServiceManifestName)"
+                         Configuration="$(Configuration)"
+                         Platform="%(AllServiceProjectsWithMetadata.Platform)">
+      <Output TaskParameter="PackageRootFiles" ItemName="_ServicePackageRootFiles" />
+    </GetPackageRootFiles>
+
+    <FilterPackageFiles PackageBehavior="$(PackageBehavior)"
+                        IncludeInPackagePaths="@(IncludeInPackagePaths)"
+                        PackageFiles="@(_ServicePackageRootFiles)"
+                        PackageType="Service">
+      <Output TaskParameter="FilteredPackageFiles" ItemName="_ServicePackageRootFilesFiltered" />
+    </FilterPackageFiles>
+
+    <ItemGroup>
+      <_AllServicePackageFilesTemp Include="@(_ServicePackageRootFilesFiltered);@(ServiceCodeFiles)" />
+      <_AllServicePackageFilesTemp>
+        <Destination>$([System.IO.Path]::GetFullPath('$(PackageLocation)\%(RelativePackagePath)'))</Destination>
+      </_AllServicePackageFilesTemp>
+    </ItemGroup>
+
+    <Copy SkipUnchangedFiles="true"
+          SourceFiles="@(_AllServicePackageFilesTemp)"
+          DestinationFiles="@(_AllServicePackageFilesTemp->'%(Destination)')" />
+  </Target>
+
+  <!-- Packages each of the referenced service projects that supports 'DeployOnBuild'. -->
+  <Target Name="PackageDeployableServices"
+          Condition=" '@(DeployableServiceProjectReference)' != '' ">
+
+    <MSBuild Projects="%(DeployableServiceProjectReference.Identity)"
+             Properties="%(DeployableServiceProjectReference.CommonBuildProperties);DeployOnBuild=true;PublishUrl=%(DeployableServiceProjectReference.PublishUrl);WebPublishMethod=FileSystem"
+             Condition=" '%(DeployableServiceProjectReference.IncludeCodePackage)' == 'true' "/>
+  </Target>
+
+  <!-- Packages each of the referenced core service projects that supports 'Publish'. -->
+  <Target Name="PackagePublishableServices"
+          Condition=" '@(PublishableServiceProjectReference)' != '' ">
+
+    <MSBuild Projects="%(PublishableServiceProjectReference.Identity)"
+             Targets="Publish"
+             Properties="%(PublishableServiceProjectReference.CommonBuildProperties);PublishDir=%(PublishableServiceProjectReference.PublishDir)"
+             Condition=" '%(PublishableServiceProjectReference.IncludeCodePackage)' == 'true' "/>
+  </Target>
+
+  <Target Name="PackageContainerServices"
+          DependsOnTargets="GetServiceProjectReferences"
+          Outputs="%(ContainerServiceProjectReference.Identity)">
+    <PropertyGroup>
+      <_ContainerServiceProject>%(ContainerServiceProjectReference.Identity)</_ContainerServiceProject>
+      <_ContainerImageName>%(ContainerServiceProjectReference.ContainerImageName)</_ContainerImageName>
+      <_IncludeContainer>%(ContainerServiceProjectReference.IncludeCodePackage)</_IncludeContainer>
+      <_ContainerProjectPath>%(ContainerServiceProjectReference.RootDir)%(ContainerServiceProjectReference.Directory)</_ContainerProjectPath>
+      <_ContainerProjectPath>$(_ContainerProjectPath.TrimEnd('\'))</_ContainerProjectPath>
+      <_ContainerAppType>%(ContainerServiceProjectReference.ContainerAppType)</_ContainerAppType>
+      <_RefreshMode>False</_RefreshMode>
+      <_BuildArgs />
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(ApplicationDebugMode)' == 'Refresh' and '$(Launching)' == 'True'">
+      <_RefreshMode>True</_RefreshMode>
+      <_BuildArgs>--build-arg source="$(DockerEmptyDirectory)"</_BuildArgs>
+    </PropertyGroup>
+
+    <MSBuild Projects="$(_ContainerServiceProject)"
+             Targets="Build"
+             Properties="%(ContainerServiceProjectReference.CommonBuildProperties);
+                         OutputPath=$(DockerPublishDirectory)"
+             Condition=" '$(_IncludeContainer)' == 'true' and
+                         $(_ContainerAppType) == 'Console' and
+                         '$(_RefreshMode)' != 'True'" />
+
+    <MSBuild Projects="$(_ContainerServiceProject)"
+             Targets="Build"
+             Properties="%(ContainerServiceProjectReference.CommonBuildProperties);
+                         WebPublishMethod=FileSystem;
+                         DeployTarget=WebPublish;
+                         DeployOnBuild=True;
+                         PublishUrl=$(DockerPublishDirectory);
+                         BuildingInsideVisualStudio=False"
+             Condition=" '$(_IncludeContainer)' == 'true' and
+                          $(_ContainerAppType) == 'Web' and
+                         '$(_RefreshMode)' != 'True'" />
+
+    <MSBuild Projects="$(_ContainerServiceProject)"
+             Targets="Publish"
+             Properties="%(ContainerServiceProjectReference.CommonBuildProperties);
+                         PublishDir=$(DockerPublishDirectory)"
+             Condition=" '$(_IncludeContainer)' == 'true' and
+                          $(_ContainerAppType) == 'SDK' and
+                         '$(_RefreshMode)' != 'True'" />
+
+    <!-- Need to create the empty directory in the RefreshMode case as it will be used for the build arg source. -->
+    <MakeDir Directories="$(_ContainerProjectPath)\$(DockerEmptyDirectory)"
+             Condition=" '$(_IncludeContainer)' == 'true' and
+                         '$(_RefreshMode)' == 'True'" />
+
+    <Exec Command='docker build -t $(_ContainerImageName) $(_BuildArgs) "$(_ContainerProjectPath)"'
+          Condition=" '$(_IncludeContainer)' == 'true' " />
+
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName($(BuiltDockerImagesFilePath)))" />
+    <WriteLinesToFile Condition=" '$(_IncludeContainer)' == 'true' "
+                      File="$(BuiltDockerImagesFilePath)"
+                      Lines="$(_ContainerImageName)" />
+  </Target>
+
+  <Target Name="AddCorrelationIds"
+          Condition=" '$(AddCorrelationIds)' == 'true' ">
+    <AddCorrelationIds ApplicationProjectPath="$(MSBuildProjectFullPath)"
+                       ServiceProjects="@(AllServiceProjectsWithMetadata)"
+                       ApplicationPackagePath="$(PackageLocation)"
+                       Configuration="$(Configuration)"
+                       ApplicationProjectPlatform="$(Platform)" />
+  </Target>
+
+  <!-- Packages the application project components. -->
+  <Target Name="PackageApplication">
+    <GetPackageRootFiles ProjectPath="$(MSBuildProjectFullPath)"
+                         PackageRootFolderPath="$(ApplicationPackageRootFolder)"
+                         DestinationPath=""
+                         Configuration="$(Configuration)"
+                         Platform="$(Platform)">
+      <Output TaskParameter="PackageRootFiles" ItemName="_ApplicationPackageRootFiles" />
+    </GetPackageRootFiles>
+
+    <FilterPackageFiles PackageBehavior="$(PackageBehavior)"
+                        IncludeInPackagePaths="@(IncludeInPackagePaths)"
+                        PackageFiles="@(_ApplicationPackageRootFiles)"
+                        PackageType="Application">
+      <Output TaskParameter="FilteredPackageFiles" ItemName="_ApplicationPackageRootFilesFiltered" />
+    </FilterPackageFiles>
+
+    <ItemGroup>
+      <_ApplicationPackageRootFilesFiltered>
+        <Destination>$([System.IO.Path]::GetFullPath('$(PackageLocation)\%(RelativePackagePath)'))</Destination>
+      </_ApplicationPackageRootFilesFiltered>
+    </ItemGroup>
+
+    <Copy SkipUnchangedFiles="true"
+          SourceFiles="@(_ApplicationPackageRootFilesFiltered)"
+          DestinationFiles="%(Destination)" />
+  </Target>
+
+  <!-- Collects package files. -->
+  <Target Name="CollectPackageFiles">
+    <Message Text="$(MSBuildProjectName) -> $([System.IO.Path]::GetFullPath($(PackageLocation)))" Importance="High" />
+    <ItemGroup>
+      <_AllPackageFiles Include="$(PackageLocation)\**" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="IncludePackageLocationOnClean" BeforeTargets="BeforeClean">
+    <ItemGroup>
+      <Clean Include="$(PackageLocation)\**" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Needed to ensure that other projects referenced from services are included in service code packages. -->
+  <Target Name="EnsureProjectReferencesAreConfigured" BeforeTargets="GetCopyToOutputDirectoryItems">
+    <MSBuild
+        Condition=" '@(ServiceProjectReference)' != ''"
+        Projects="@(ServiceProjectReference)"
+        Targets="AssignProjectConfiguration"
+        Properties="%(ServiceProjectReference.CommonBuildProperties)" />
+  </Target>
+
+  <Target Name="VerifyVersionCompatibility" BeforeTargets="Build">
+    <VerifyVersionCompatibility PackageVersion="$(ApplicationMSBuildNuGetPackageVersion)" ProjectVersion="$(ProjectVersion)" />
+  </Target>
+
+  <!-- ResolveAssemblyReferences on application project results into conflict resolution error. Refer https://github.com/Azure/service-fabric-issues/issues/29 for more detail.
+  This target is not needed for application project as it only service projects -->
+  <Target Name="ResolveAssemblyReferences" />
+</Project>
