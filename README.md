@@ -170,3 +170,16 @@ Configure a message-based integration architecture
 Develop for autoscaling
 - [Implement autoscaling rules and patterns schedule, operational/system metrics, code that addresses singleton application instances](http://bit.ly/2y0B4zC)
 - [Implement code that addresses transient state](http://bit.ly/2y2lCmu)
+
+
+# Products
+
+- [Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/active-directory/)
+- [Azure Batch](https://docs.microsoft.com/en-us/azure/batch/)
+- [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/) 
+- [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs)
+- [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) 
+- [Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)
+- [Azure Service Bus Relay](https://docs.microsoft.com/en-us/azure/service-bus-relay/)
+- [Azure Storage](https://docs.microsoft.com/en-us/azure/storage) 
+- [SendGrid](https://docs.microsoft.com/en-us/azure/sendgrid-dotnet-how-to-send-email)

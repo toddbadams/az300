@@ -1,7 +1,7 @@
 
 # Azure Storage
 
-[Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) offers three types of storage accounts:
+[Azure Storage](https://docs.microsoft.com/en-us/azure/storage) offers three types of storage accounts:
 
 - **v2**. blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
 - **v1**. Legacy account type for blobs, files, queues, and tables. 

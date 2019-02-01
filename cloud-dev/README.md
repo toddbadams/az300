@@ -1,21 +1,13 @@
 
 # HPC
 
-High-performance computing (HPC) typically describes the aggregation of complex processes across many different machines, thereby maximizing the computing power of all of the machines.
-
-Azure H-series virtual machines (VMs) are the latest in HPC VMs
-
-These 8 and 16 virtual CPU (vCPU) VMs are built on the Intel Haswell processor technology featuring a later generation (DDR4) memory and solid-state drive (SSD)-based temporary storage.
-
- H-series offers diverse options for low-latency Remote Direct Memory Access (RDMA) networking using Fourteen Data Rate (FDR) InfiniBand
+ [High-performance computing (HPC)](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/high-performance-computing) typically describes the aggregation of complex processes across many different machines, thereby maximizing the computing power of all of the machines. Azure H-series VMs are the latest in HPC VMs.  These 8 and 16 virtual CPU VMs built on  Intel Haswell processor technology featuring a later generation (DDR4) memory and solid-state drive (SSD)-based temporary storage.
 
 ## Remote Direct Memory Access (RDMA)
-RDMA is a technology that provides a low-latency network connection between the processing running on two servers or virtual machines in Azure. instances (H16r, H16mr, A8, and A9) feature a network interface for RDMA connectivity.
+ H-series offers diverse options for low-latency Remote Direct Memory Access (RDMA) networking using Fourteen Data Rate (FDR) InfiniBand. RDMA is a technology that provides a low-latency network connection between the processing running on two servers or virtual machines in Azure. instances (H16r, H16mr, A8, and A9) feature a network interface for RDMA connectivity.
 
 ## Azure Batch for HPC
-Azure Batch is a service that manages VMs for large-scale parallel and HPC applications  PaaS
-
- process, transform, and analyze large amounts of data either on a schedule or on demand
+[Azure Batch](https://docs.microsoft.com/en-us/azure/batch/) a PaaS that manages VMs for large-scale parallel and HPC applications.  It process, transform, and analyze large amounts of data either on a schedule or on demand.
 
  The Batch API can handle scaling out an intrinsically parallel workload, such as image rendering, on a pool of up to thousands of compute cores. Instead of having to set up a compute cluster or write code to queue and schedule your jobs and move the necessary input and output data, you automate the scheduling of large compute jobs and scale a pool of compute VMs up and down to run them. You can write client apps or front ends to run jobs and tasks on demand, on a schedule, or as part of a larger workflow managed by tools such as Azure Data Factory.
 
@@ -41,7 +33,7 @@ As the internet evolved, many applications began implementing “user-defined HT
 
 ## Send Grid
 
-SendGrid provides transactional email delivery, scalability based on email volume, and real-time analytics for the sent messages. SendGrid also has a flexible API to enable custom integration scenarios.
+[SendGrid](https://docs.microsoft.com/en-us/azure/sendgrid-dotnet-how-to-send-email) provides transactional email delivery, scalability based on email volume, and real-time analytics for the sent messages. SendGrid also has a flexible API to enable custom integration scenarios.
 
 https://github.com/sendgrid/sendgrid-csharp.git
 
@@ -58,10 +50,10 @@ There are a few common implementations of an event-driven architecture that you 
 - Event stream processing. You use a data streaming platform, such as Azure IoT Hub or Apache Kafka, as a pipeline to ingest events and feed them to stream processors. The stream processors act to process or transform the stream. There may be multiple stream processors for different subsystems of the application. This approach is a good fit for Internet of Things (IoT) workloads.
 
 ## Azure Event Grid
-Azure Event Grid allows you to easily build applications with event-based architectures. You select the Azure resource you would like to subscribe to and give the event handler or webhook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like those for storage blobs and resource groups.
+[Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/) allows you to easily build applications with event-based architectures. You select the Azure resource you would like to subscribe to and give the event handler or webhook endpoint to send the event to. Event Grid has built-in support for events coming from Azure services, like those for storage blobs and resource groups.
 
 ## Azure Relay service
-The Azure Relay service facilitates hybrid applications by enabling you to more-securely expose services that reside within a corporate enterprise network to the public cloud—without having to open a firewall connection or require intrusive changes to a corporate network infrastructure. Azure Relay supports a variety of different transport protocols and web service standards. The Azure Relay service supports traditional one-way, request/response, and peer-to-peer traffic. It also supports event distribution at internet scope to enable publish/subscribe scenarios and bidirectional socket communication for increased point-to-point efficiency.
+[Azure Service Bus Relay](https://docs.microsoft.com/en-us/azure/service-bus-relay/) service facilitates hybrid applications by enabling you to more-securely expose services that reside within a corporate enterprise network to the public cloud—without having to open a firewall connection or require intrusive changes to a corporate network infrastructure. Azure Relay supports a variety of different transport protocols and web service standards. The Azure Relay service supports traditional one-way, request/response, and peer-to-peer traffic. It also supports event distribution at internet scope to enable publish/subscribe scenarios and bidirectional socket communication for increased point-to-point efficiency.
 
 
 ## Azure Notification Hubs
@@ -93,5 +85,5 @@ The PNS forwards the notification to the device specified by the handle.
 ![Event Hub Integration](https://docs.microsoft.com/en-us/azure/event-grid/media/event-grid-event-hubs-integration/overview.png)
 
 ## Azure IoT Hub
-Azure IoT Hub is a managed service, hosted in the cloud, that acts as a central message hub for bidirectional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and encrypted communications between millions of IoT devices and a cloud-hosted solution back-end. You can connect virtually any device to IoT Hub.
+[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) is a managed service, hosted in the cloud, that acts as a central message hub for bidirectional communication between your IoT application and the devices it manages. You can use Azure IoT Hub to build IoT solutions with reliable and encrypted communications between millions of IoT devices and a cloud-hosted solution back-end. You can connect virtually any device to IoT Hub.
 
