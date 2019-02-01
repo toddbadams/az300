@@ -1,8 +1,7 @@
 
 # Azure Storage
 
-Types of storage accounts
-[Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview offers three types of storage accounts:
+[Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) offers three types of storage accounts:
 
 - **v2**. blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
 - **v1**. Legacy account type for blobs, files, queues, and tables. 
@@ -11,6 +10,7 @@ Types of storage accounts
 General-purpose storage account two performance tiers:
 
 | type	| services	|  tiers	| access tiers	| Replication | Deployment	| 
+|---|---|---|---|---|---|
 | General-purpose V2	| Blob, File, Queue, Table, and Disk	| Standard, Premium	| Hot, Cool, Archive3	| LRS, ZRS4, GRS, RA-GRS	| Resource Manager	| 
 | General-purpose V1	| Blob, File, Queue, Table, and Disk	| Standard, Premium	| N/A	| LRS, GRS, RA-GRS | Resource Manager, Classic	| 
 | Blob storage	| Blob (block and append only)	| Standard	| Hot, Cool, Archive3	| LRS, GRS, RA-GRS	| Resource Manager| 
@@ -20,12 +20,13 @@ General-purpose storage account two performance tiers:
 
 ## Azure Storage redundancy
 
-- **[Locally redundant storage (LRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
-- **[Zone-redundant storage (ZRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs)
-- **[Geo-redundant storage (GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs)
-- **[Read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)
+- [Locally redundant storage (LRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
+- [Zone-redundant storage (ZRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs)
+- [Geo-redundant storage (GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs)
+- [Read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)
 
 | Scenario	| LRS	| ZRS	| GRS	| RA-GRS | 
+|---|---|---|---|---|
 | Node unavailability within a data center	| Yes	| Yes	| Yes	| Yes | 
 | An entire data center (zonal or non-zonal) unavailable	| No	| Yes	| Yes	| Yes | 
 | A region-wide outage	| No	| No	| Yes	| Yes | 
