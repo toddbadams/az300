@@ -60,24 +60,24 @@ Automate deployment of Virtual Machines (VMs)
 - [Save a deployment as an ARM template](http://bit.ly/2y2TmjM)
 - Deploy [Windows](Http://bit.ly/2xZkJuN) and [Linux VMs](http://bit.ly/2y2TdfU)
 
-Create connectivity between virtual networks)
+Create connectivity between virtual networks
 - [Create and configure VNET peering](http://bit.ly/2NqMu5P)
 - [Create and configure VNET to VNET](http://bit.ly/2uwAd8J)
 - [Verify virtual network connectivity](http://bit.ly/2muFbP7)
 - [create virtual network gateway](http://bit.ly/2LpVkzQ)
 
-Implement and manage virtual networking)
+Implement and manage virtual networking
 - [Configure private and public IP addresses, network routes, network interface, subnets, and virtual network](http://bit.ly/2xUCgUQ)
 
-Manage Azure Active Directory (AD))
+Manage Azure Active Directory (AD)
 - [Add custom domains](http://bit.ly/2LjoCn3)
-- [configure Azure AD Identity Protection, Azure AD Join, and Enterprise State Roaming](http://bit.ly/2LnOcYk http://bit.ly/2uHGuOl http://bit.ly/2zPcAxg)
+- Configure [Azure AD Identity Protection](http://bit.ly/2LnOcYk), [Azure AD Join](http://bit.ly/2uHGuOl), and [Enterprise State Roaming](http://bit.ly/2zPcAxg)
 - [Configure self-service password reset](http://bit.ly/2NYOAei)
 - [Implement conditional access policies](http://bit.ly/2Jvj8kj)
 - [Manage multiple directories](http://bit.ly/2LqR5UW)
-- [Perform an access review](http://bit.ly/2zTTW7E
+- [Perform an access review](http://bit.ly/2zTTW7E)
 
-Implement and manage hybrid identities)
+Implement and manage hybrid identities
 - [Install and configure Azure AD Connect](http://bit.ly/2Jwvqce)
 - [Configure federation and single sign-on](http://bit.ly/2zNeiPM)
 - [Manage Azure AD Connect](http://bit.ly/2LqmoiE)
@@ -121,7 +121,7 @@ Manage role-based access control (RBAC)
 - [Implement RBAC policies](http://bit.ly/2Nwo4rB)
 - [Assign RBAC roles](http://bit.ly/2NoMTFy
 
-Implement Multi-Factor Authentication (MFA))
+Implement Multi-Factor Authentication (MFA)
 - [Enable MFA for an Azure tenant](http://bit.ly/2Ntkuy9)
 - [Configure user accounts for MFA](http://bit.ly/2NuNdCZ)
 - [Configure fraud alerts](http://bit.ly/2NtrQSl)
