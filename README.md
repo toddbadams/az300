@@ -39,13 +39,13 @@ Analyze resource utilization and consumption
 - [View alerts in Log Analytics](http://bit.ly/2JB7Gnm)
 
 Create and Configure storage accounts
-- [Configure network access to the storage account](http://bit.ly/2y2QWBo)
-- [Create and configure storage account](http://bit.ly/2xZOADt)
-- [Generate shared access signature](http://bit.ly/2y02GEX)
-- [Install and use Azure Storage Explorer](http://bit.ly/2y0qUyV)
-- [Manage access keys](http://bit.ly/2xZKv2h)
-- [Monitor activity log by using Log Analytics](http://bit.ly/2y0qs3G)
-- [Implement Azure storage replication](http://bit.ly/2xYmBnO)
+- [Configure network access to the storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security)  - virtual networks
+- [Create and configure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account)
+- [Generate shared access signature](https://docs.microsoft.com/en-gb/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Install and use Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+- [Manage access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide)
+- [Monitor activity log by using Log Analytics](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitoring-diagnosing-troubleshooting?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Implement Azure storage replication](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 Create and configure a Virtual Machine (VM) for Windows and Linux
 - [Configure high availability](http://bit.ly/2y0f7AC)

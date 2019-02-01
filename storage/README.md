@@ -10,8 +10,8 @@
 
 | type               | services                           | tiers             | access tiers       | Replication            | Deployment                |
 |--------------------|------------------------------------|-------------------|--------------------|------------------------|---------------------------|
-| General-purpose V2 | Blob, File, Queue, Table, and Disk | Standard, Premium | Hot, Cool, Archive | LRS, ZRS4, GRS, RA-GRS | Resource Manager          |
-| General-purpose V1 | Blob, File, Queue, Table, and Disk | Standard, Premium | N/A                | LRS, GRS, RA-GRS       | Resource Manager, Classic |
+| GPv2 | Blob, File, Queue, Table, and Disk | Standard, Premium | Hot, Cool, Archive | LRS, ZRS4, GRS, RA-GRS | Resource Manager          |
+| GPv1 | Blob, File, Queue, Table, and Disk | Standard, Premium | N/A                | LRS, GRS, RA-GRS       | Resource Manager, Classic |
 | Blob storage       | Blob (block and append only)       | Standard          | Hot, Cool, Archive | LRS, GRS, RA-GRS       | Resource Manager          |
 
 - All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest
@@ -25,7 +25,9 @@ General-purpose storage account two performance tiers:
 
 ✔️ NOT possible to convert a Standard to Premium or vice versa. Must create and copy data.
 
-**LAB**. [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+Can configure [custom domain names](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name) accessing blob content instead of using the Azure URLs. 
+
+**LAB**. [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
 
 ## Azure Storage Redundancy
 
@@ -49,20 +51,35 @@ General-purpose storage account two performance tiers:
  
  Can change replication strategy without down time.
 
-custom domain names
+## SAS
+A [shared access signature (SAS)](https://docs.microsoft.com/en-gb/azure/storage/common/storage-dotnet-shared-access-signature-part-1) provides you with a way to grant limited access to objects in your storage account to other clients, without exposing your account key.  A SAS gives you granular control  including:
 
-replication
+- The valid interval (start and expiry).
+- The permissions granted.
+- An optional IP address or range of IP addresses.
+- The optional protocol. 
 
-storage explorer
+Two typical design patterns:
+1.  Clients upload and download data via a front-end proxy service.
+1.  A lightweight service authenticates the client as needed and then generates a SAS.
 
-import / export service
+Two types of shared access signatures:
+1. The service SAS delegates access to a resource in just one of the storage services: the Blob, Queue, Table, or File service.
+1. The account SAS delegates access to resources in one or more of the storage services. 
 
-cdn
+# Storage Explorer
 
-monitoring storage & health
+[Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) allows;
 
-Create and configure storage accounts
-May include but not limited to: Configure network access to the storage account; create and configure storage account; generate shared access signature; install and use Azure Storage Explorer; manage access keys; monitor activity log by using Log Analytics; implement Azure storage replication
+- Access multiple accounts and subscriptions.
+- Create, delete, view, and edit storage resources.
+- View and edit Blob, Queue, Table, File, Cosmos DB storage and Data Lake Storage.
+- Obtain shared access signature (SAS) keys.
+- Available for Windows, Mac, and Linux.
+
+[![Microsoft’s Azure Storage Explorer](http://img.youtube.com/vi/Rcw9tVXxmKk/0.jpg)](http://www.youtube.com/watch?v=Rcw9tVXxmKk)
+
+**LAB** [Use Azure Storage Explorer to create a blob in object storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
 
 # Encryption
 
