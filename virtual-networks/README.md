@@ -4,11 +4,14 @@
 
 A **[Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)** enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is scoped to a single region; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
 
+[Networking limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits-1)
+
+
 For each virtual network you can:
 
-- Specify a custom private IP address space using public and private addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign.
-- Segment the virtual network into one or more subnets and allocate a portion of the virtual network's address space to each subnet.
-- Use Azure-provided name resolution, or specify your own DNS server, for use by resources in a virtual network.
+- Specify a custom private IP address space using public and private addresses. 
+- Segment the virtual network into one or more subnets.
+- Use Azure-provided name resolution, or specify a DNS server.
 
 ## Communicate between Azure resources
 
@@ -38,27 +41,3 @@ For each virtual network you can:
 
 
 
-powershell
-nics (vms with multi nics)
-ip addresses
-routing
-vnet to vnet  - peering / vpn
-
-monitoring & health
-
-Create and configure VNET peering
-create and configure VNET to VNET
-verify virtual network connectivity
-create virtual network gateway
-
-Configure private and public IP addresses, network routes, network interface, subnets, and virtual network
-
-
-Configure application gateway and load balancing rules
-implement front end IP configurations
-manage application load balancing
-
-Create and configure Azure VPN Gateway
-create and configure site to site VPNconfigure Express Route
-verify on premises connectivity
-manage on-premise connectivity with Azure

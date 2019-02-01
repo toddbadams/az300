@@ -1,6 +1,6 @@
 # Microsoft Azure Architect Technologies AZ-300
 
-This repo contains my notes while studing for the [AZ-300](https://www.microsoft.com/en-us/learning/exam-az-300.aspx) exam.  It is not inclusive of everthing that is required to pass the exam.
+This repo contains my notes while studing for the [AZ-300](https://www.microsoft.com/en-us/learning/exam-az-300.aspx) exam.  
 
 ## my notes and labs
 - [containers](./containers)
@@ -38,7 +38,7 @@ Analyze resource utilization and consumption
 - [Utilize Log Search query functions](http://bit.ly/2KZvEy5)
 - [View alerts in Log Analytics](http://bit.ly/2JB7Gnm)
 
-Create and Configure storage accounts
+✔️ Create and Configure storage accounts
 - [Configure network access to the storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security)  - virtual networks
 - [Create and configure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account)
 - [Generate shared access signature](https://docs.microsoft.com/en-gb/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
