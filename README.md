@@ -17,7 +17,7 @@ This repo contains my notes while studing for the [AZ-300](https://www.microsoft
 - [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
 - [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates)
 - [Pluralsight course](https://www.pluralsight.com/paths/microsoft-azure-architect-technologies-az-300)
-- [Instructor notes](http://www.thetrainingworks.eu/web/az300.html)
+- [Splunk with Azure](https://www.splunk.com/blog/2018/04/20/splunking-microsoft-azure-monitor-data-part-1-azure-setup.html#)
 
 ## Ignite 2018 talk on exam
 
