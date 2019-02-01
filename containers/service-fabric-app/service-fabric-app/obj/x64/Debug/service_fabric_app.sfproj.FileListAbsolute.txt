@@ -1,0 +1,1 @@
+C:\code\az300\service-fabric\service-fabric-app\service-fabric-app\obj\x64\Debug\service_fabric_app.sfproj.CoreCompileInputs.cache

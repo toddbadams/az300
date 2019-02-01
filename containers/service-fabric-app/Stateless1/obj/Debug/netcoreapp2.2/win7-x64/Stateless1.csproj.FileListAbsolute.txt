@@ -1,0 +1,14 @@
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\obj\Debug\netcoreapp2.2\win7-x64\Stateless1.csproj.CoreCompileInputs.cache
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\obj\Debug\netcoreapp2.2\win7-x64\Stateless1.AssemblyInfoInputs.cache
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\obj\Debug\netcoreapp2.2\win7-x64\Stateless1.AssemblyInfo.cs
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\hostpolicy.dll
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\hostfxr.dll
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\Stateless1.exe
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\Stateless1.deps.json
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\Stateless1.runtimeconfig.json
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\Stateless1.runtimeconfig.dev.json
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\Stateless1.dll
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\bin\Debug\netcoreapp2.2\win7-x64\Stateless1.pdb
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\obj\Debug\netcoreapp2.2\win7-x64\Stateless1.csprojAssemblyReference.cache
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\obj\Debug\netcoreapp2.2\win7-x64\Stateless1.dll
+C:\code\az300\service-fabric\service-fabric-app\Stateless1\obj\Debug\netcoreapp2.2\win7-x64\Stateless1.pdb
