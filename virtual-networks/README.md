@@ -41,3 +41,36 @@ For each virtual network you can:
 
 
 
+# Application Gateway
+
+Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer, which is layer 4 in the OSI model for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP), and route traffic based on the source IP address and port to a destination IP address and port. But with Application Gateway, you can be even more specific. Azure Application Gateway supports application layer (layer 7 in the OSI model) load balancing.
+
+## Autoscaling
+Application Gateway offers autoscaling and other critical performance enhancements.
+
+- **Autoscaling**. scale up or down based on changing traffic load patterns. 
+- **Zone redundancy**. can span multiple Availability Zones
+- **Static VIP**. supports the static VIP type exclusively
+
+## Secure Sockets Layer (SSL) termination
+Application gateway supports SSL termination at the gateway. 
+
+## Web application firewall
+[Web application firewall (WAF)](https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview) provides protection from the [OWASP (Open Web Application Security Project) core rule sets 3.0 or 2.2.9](https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview).
+
+## URL-based routing
+URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request.
+
+## Multiple-site hosting
+Multiple-site hosting enables you to configure up to 100 web sites to one application gateway. 
+
+## Sizing
+Application Gateway is currently offered in three sizes. The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
+
+| Average back-end page response size |   Small  |  Medium  |   Large  |
+|-------------------------------------|:--------:|:--------:|:--------:|
+| 6 KB                                | 7.5 Mbps |  13 Mbps |  50 Mbps |
+| 100 KB                              |  35 Mbps | 100 Mbps | 200 Mbps |
+
+
+

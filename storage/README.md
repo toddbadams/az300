@@ -1,7 +1,7 @@
 
 # Azure Storage
 
-[Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) offers three types of storage accounts:
+[Azure Storage](https://docs.microsoft.com/en-us/azure/storage) offers three types of storage accounts:
 
 - **v2**. blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
 - **v1**. Legacy account type for blobs, files, queues, and tables. 
@@ -23,7 +23,7 @@ General-purpose storage account two performance tiers:
 - **Standard**. magnetic drives (HDD), lowest cost per GB. 
 - **Premium**. solid state drives (SSD) and offer consistent low-latency performance.
 
-✔️ NOT possible to convert a Standard to Premium or vice versa. Must create and copy data.
+NOT possible to convert a Standard to Premium or vice versa. Must create and copy data.
 
 Can configure [custom domain names](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-custom-domain-name) accessing blob content instead of using the Azure URLs. 
 
@@ -38,10 +38,10 @@ Can configure [custom domain names](https://docs.microsoft.com/en-us/azure/stora
 
 | Scenario                                                                    |        LRS       |  ZRS  |        GRS       |      RA-GRS      |
 |-----------------------------------------------------------------------------|:----------------:|:-----:|:----------------:|:----------------:|
-| Node unavailability within a data center                                    |        Yes       |  Yes  |        Yes       |        Yes       |
-| An entire data center (zonal or non-zonal) unavailable                      |        No        |  Yes  |        Yes       |        Yes       |
-| A region-wide outage                                                        |        No        |   No  |        Yes       |        Yes       |
-| Read access (in a remote, geo-replicated region) region-wide unavailability |        No        |   No  |        No        |        Yes       |
+| Node unavailability within a data center                                    |        ✔️        |  ✔️   |        ✔️        |        ✔️        |
+| An entire data center (zonal or non-zonal) unavailable                      |                |  ✔️   |        ✔️        |        ✔️        |
+| A region-wide outage                                                        |                |     |        ✔️        |        ✔️        |
+| Read access (in a remote, geo-replicated region) region-wide unavailability |               |     |               |        ✔️        |
 | durability (9's)                                                            |        11        |   12  |        16        |        16        |
 | account types                                                               | GPv2, GPv1, Blob |  GPv2 | GPv2, GPv1, Blob | GPv2, GPv1, Blob |
 | read SLA                                                                    |       99.9%      | 99.9% |       99.9%      |      99.99%      |
