@@ -43,7 +43,7 @@ Create and Configure storage accounts
 - [Install and use Azure Storage Explorer](http://bit.ly/2y0qUyV)
 - [Manage access keys](http://bit.ly/2xZKv2h)
 - [Monitor activity log by using Log Analytics](http://bit.ly/2y0qs3G)
-- [Implement Azure storage replication](http://bit.ly/2xYmBnO
+- [Implement Azure storage replication](http://bit.ly/2xYmBnO)
 
 Create and configure a Virtual Machine (VM) for Windows and Linux
 - [Configure high availability](http://bit.ly/2y0f7AC)
@@ -146,24 +146,24 @@ Design and develop apps that run in containers
 
 ## Implement Authentication and Secure Data (5-10%)
 
-Implement authentication)
+Implement authentication
 - [Implement authentication by using certificates, forms-based authentication, tokens, or Windows-integrated authentication](http://bit.ly/2yaIWyp http://bit.ly/2ykLLNF http://bit.ly/2ybzWZP)
 - [Implement multi-factor authentication by using Azure AD options](http://bit.ly/2y7n474)
 - [Implement OAuth2 authentication](http://bit.ly/2Fu3wix)
 - [Implement Managed Service Identity (MSI) Service Principal authentication](http://bit.ly/2FtPk9e)
 
-Implement secure data solutions)
+Implement secure data solutions
 - [Encrypt and decrypt data at rest and in transit](http://bit.ly/2ykKndV)
 - [Encrypt data with Always Encrypted](http://bit.ly/2yeHjQ7)
 - [Implement Azure Confidential Compute and SSL/TLS communications](http://bit.ly/2ycu6Yk)
 - [Create, read, update, and delete keys, secrets, and certificates by using the KeyVault API](http://bit.ly/2y8JGUN)
 
 ## Develop for the Cloud (20-25%)
-Configure a message-based integration architecture)
+Configure a message-based integration architecture
 - [Configure an app or service to send emails, Event Grid, and the Azure Relay Service](http://bit.ly/2y12ANe)
 - [Create and configure Notification Hub, Event Hub, and Service Bus](http://bit.ly/2y545Ky)
 - [Configure queries across multiple products](http://bit.ly/2y2q6tn)
 
 Develop for autoscaling
-- [Implement autoscaling rules and patterns (schedule, operational/system metrics, code that addresses singleton application instances),	http://bit.ly/2y0ANN6 http://bit.ly/2y0B4zC)
+- [Implement autoscaling rules and patterns schedule, operational/system metrics, code that addresses singleton application instances](http://bit.ly/2y0B4zC)
 - [Implement code that addresses transient state](http://bit.ly/2y2lCmu)

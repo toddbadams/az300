@@ -1,7 +1,42 @@
 
 # Azure Storage
 
-standard / premium
+Types of storage accounts
+[Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview offers three types of storage accounts:
+
+- **v2**. blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
+- **v1**. Legacy account type for blobs, files, queues, and tables. 
+- **Blob**. Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
+
+General-purpose storage account two performance tiers:
+
+| type	| services	|  tiers	| access tiers	| Replication | Deployment	| 
+| General-purpose V2	| Blob, File, Queue, Table, and Disk	| Standard, Premium	| Hot, Cool, Archive3	| LRS, ZRS4, GRS, RA-GRS	| Resource Manager	| 
+| General-purpose V1	| Blob, File, Queue, Table, and Disk	| Standard, Premium	| N/A	| LRS, GRS, RA-GRS | Resource Manager, Classic	| 
+| Blob storage	| Blob (block and append only)	| Standard	| Hot, Cool, Archive3	| LRS, GRS, RA-GRS	| Resource Manager| 
+
+- All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest
+- The Archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. [Hot, Cool, and Archive storage tiers](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)
+
+## Azure Storage redundancy
+
+- **[Locally redundant storage (LRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs)
+- **[Zone-redundant storage (ZRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs)
+- **[Geo-redundant storage (GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs)
+- **[Read-access geo-redundant storage (RA-GRS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)
+
+| Scenario	| LRS	| ZRS	| GRS	| RA-GRS | 
+| Node unavailability within a data center	| Yes	| Yes	| Yes	| Yes | 
+| An entire data center (zonal or non-zonal) unavailable	| No	| Yes	| Yes	| Yes | 
+| A region-wide outage	| No	| No	| Yes	| Yes | 
+| Read access (in a remote, geo-replicated region) region-wide unavailability	| No	| No	| No	| Yes | 
+| __ durability | 11 9's| 12 9's| 16 9's| 16 9's | 
+| account types	| GPv2, GPv1, Blob	| GPv2	| GPv2, GPv1, Blob	| GPv2, GPv1, Blob | 
+| read SLA | 99.9% 	| 99.9% | 99.9% | 99.99%  | 
+| cool access tier read SLA | 99% 	| 99% | 99%	| 99.9%  | 
+| write SLA | 99.9% | 99.9% | 99.9% | 99.9% | 
+| cool access tier write SLA | 99% | 99% | 99%| 99% | 
+ 
 
 custom domain names
 
