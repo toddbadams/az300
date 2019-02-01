@@ -177,6 +177,7 @@ Develop for autoscaling
 1. [Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/active-directory/)
 1. [App Service](https://docs.microsoft.com/en-us/azure/app-service/)
 1. [Batch](https://docs.microsoft.com/en-us/azure/batch/)
+1. [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/)
 1. [Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/)
 1. [Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/) 
 1. [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs)
