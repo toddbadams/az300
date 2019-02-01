@@ -2,6 +2,7 @@
 
 This repo contains my notes while studing for the [AZ-300](https://www.microsoft.com/en-us/learning/exam-az-300.aspx) exam.  It is not inclusive of everthing that is required to pass the exam.
 
+## my notes and labs
 - [containers](./containers)
 - [identity](./identity)
 - [logic apps](./logic-apps)
@@ -17,6 +18,7 @@ This repo contains my notes while studing for the [AZ-300](https://www.microsoft
 - [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates)
 - [Pluralsight course](https://www.pluralsight.com/paths/microsoft-azure-architect-technologies-az-300)
 
+## Ignite 2018 talk on exam
 
 [![AZ-300 Technologies](http://img.youtube.com/vi/u1myyD_cGVQ/0.jpg)](http://www.youtube.com/watch?v=u1myyD_cGVQ)
 
