@@ -3,12 +3,39 @@
 This repo contains my notes while studing for the [AZ-300](https://www.microsoft.com/en-us/learning/exam-az-300.aspx) exam.  
 
 ## my notes and labs
-1. [containers](./containers)
-1. [identity](./identity)
-1. [logic apps](./logic-apps)
-1. [storage](./storage)
-1. [virtual machines](./virtual-machines)
-1. [virtual networks](./virtual-networks)
+1. [cloud dev](./cloud-dev/README.md)
+1. [containers](./containers/README.md)
+1. [identity](./identity/README.md)
+1. [logic apps](./logic-apps/README.md)
+1. [scalability](./scalability/README.md)
+1. [storage](./storage/README.md)
+1. [virtual machines](./virtual-machines/README.md)
+1. [virtual networks](./virtual-networks/README.md)
+
+# Azure Product Documentation
+
+1. [Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/active-directory/)
+1. [App Service](https://docs.microsoft.com/en-us/azure/app-service/)
+1. [Batch](https://docs.microsoft.com/en-us/azure/batch/)
+1. [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/)
+1. [Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/)
+1. [Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/) 
+1. [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs)
+1. [Function Apps](https://docs.microsoft.com/en-us/azure/azure-functions/)
+1. [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) 
+1. [Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/)
+1. [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)
+1. [Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/)
+1. [Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)
+1. [SendGrid](https://docs.microsoft.com/en-us/azure/sendgrid-dotnet-how-to-send-email)
+1. [Service Bus Messaging](https://docs.microsoft.com/en-us/azure/service-bus-messaging/)
+1. [Service Bus Relay](https://docs.microsoft.com/en-us/azure/service-bus-relay/)
+1. [Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/)
+1. [Storage](https://docs.microsoft.com/en-us/azure/storage) 
+1. [Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/)
+1. [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/)
+
+
 
 
 ## some relevant research
@@ -172,25 +199,3 @@ Develop for autoscaling
 1. [Implement code that addresses transient state](http://bit.ly/2y2lCmu)
 
 
-# Products
-
-1. [Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/active-directory/)
-1. [App Service](https://docs.microsoft.com/en-us/azure/app-service/)
-1. [Batch](https://docs.microsoft.com/en-us/azure/batch/)
-1. [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/)
-1. [Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/)
-1. [Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/) 
-1. [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs)
-1. [Function Apps](https://docs.microsoft.com/en-us/azure/azure-functions/)
-1. [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) 
-1. [Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/)
-1. [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)
-1. [Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/)
-1. [Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/)
-1. [SendGrid](https://docs.microsoft.com/en-us/azure/sendgrid-dotnet-how-to-send-email)
-1. [Service Bus Messaging](https://docs.microsoft.com/en-us/azure/service-bus-messaging/)
-1. [Service Bus Relay](https://docs.microsoft.com/en-us/azure/service-bus-relay/)
-1. [Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/)
-1. [Storage](https://docs.microsoft.com/en-us/azure/storage) 
-1. [Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/)
-1. [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/)
