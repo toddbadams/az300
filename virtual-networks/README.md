@@ -45,6 +45,8 @@ For each virtual network you can:
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer, which is layer 4 in the OSI model for Transmission Control Protocol (TCP) and User Datagram Protocol (UDP), and route traffic based on the source IP address and port to a destination IP address and port. But with Application Gateway, you can be even more specific. Azure Application Gateway supports application layer (layer 7 in the OSI model) load balancing.
 
+![Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/media/application-gateway-url-route-overview/figure1-720.png)
+
 ## Autoscaling
 Application Gateway offers autoscaling and other critical performance enhancements.
 

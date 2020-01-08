@@ -954,7 +954,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.App/2.2.0": {
-      "sha512": "QU8taCyeyePwatrj+h+750lMnsPCq3YPaGmsdtSHXPCjDyjto2KT7QDNVet0oRliX4PjaINpyg0Yzd9DnQ/Wkw==",
+      "sha512": "scu9EtZfMBXAeyTPgiP5l/18xTU6QKDK+UfYWMFM7m5ZuBOPLhqjm+QyX8T6PI5y8exgcNiVd50TflyBl9M/og==",
       "type": "package",
       "path": "microsoft.netcore.app/2.2.0",
       "files": [
@@ -1294,7 +1294,7 @@
       ]
     },
     "Microsoft.ServiceFabric/6.4.622": {
-      "sha512": "Qyz7/0V/b/NumMeID93kHKHnc35hgtKBNzHJayofVCFwB7UMHuM1HAP645tzTOAU1YpTWlzxu7qZobx3YnA/ig==",
+      "sha512": "UGhVNCQypCVRmreekBwY04k+t0MsB+zkCBCEGacq5oUnK5U1xDzxGEdW4nuFKG/3erhMDafjxKUmbQg2Yl2ztg==",
       "type": "package",
       "path": "microsoft.servicefabric/6.4.622",
       "files": [
@@ -1420,7 +1420,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Data/3.3.622": {
-      "sha512": "zePdGogVqijC/4D/q8nwuDuHnIkd6QxwNsjsEfDp6QwoqYIeFnKOlDFeJ4FttKcIFQRQBT0OjbeEcSstmIynGg==",
+      "sha512": "ErGh/e0rAPZwVujqqyJMF73h7M/AtOeRoLSLA/0JFkqKfR9tRevl+p48ytR2xZeDmjlBLZ04qaMUbCq6hudsig==",
       "type": "package",
       "path": "microsoft.servicefabric.data/3.3.622",
       "files": [
@@ -1454,7 +1454,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Data.Extensions/1.4.622": {
-      "sha512": "84vAuFcCZs6ZPHraiu9IQFKAoF8w1ou31xI/odm2cHgDu0RJ0sBUj7KuRDPtj39fp6s2rZxH3BWPWWfNRn1Ivw==",
+      "sha512": "RHZMur44X0/kWMyS4qakvlB8nyHZTHcg78gAw1VOqLcxj1NvKiw4OpdYPrrRNKFZHe8AhVY0fJ7ncWvR1tyEPQ==",
       "type": "package",
       "path": "microsoft.servicefabric.data.extensions/1.4.622",
       "files": [
@@ -1495,7 +1495,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Data.Interfaces/3.3.622": {
-      "sha512": "v6mMAx3aelXRPyN7ZtcaEURiw6VyWkRsAOdfyIZzZqTiy37WCpkAgdG85b2JoSU1HhoEN4Oj7++SzBtk1lklBQ==",
+      "sha512": "5XGKxJr2NacLmVXtdgGUJmsXi1NJe+38qfnwcY3v3B/KlUMVBMvi+9/01sTX2pExUOMNsKWVlz0JMc7zhyJ9tQ==",
       "type": "package",
       "path": "microsoft.servicefabric.data.interfaces/3.3.622",
       "files": [
@@ -1529,7 +1529,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Diagnostics.Internal/3.3.622": {
-      "sha512": "KHk+fz0EbG0YUTT+/lgU444/o13UTck7h0y9Ii/Qzv7TDBdBEnOlMh1PKrep1ASdvwxLewpPOXMk+rr4IowB0A==",
+      "sha512": "ifROr1t44qhPinziO0rRTiU2I5JR1NndiauqKldo/CICtuyecUytDN3V+n2jl9Z7fSgWaChqUvvVk4/hpMSlvg==",
       "type": "package",
       "path": "microsoft.servicefabric.diagnostics.internal/3.3.622",
       "files": [
@@ -1563,7 +1563,7 @@
       ]
     },
     "Microsoft.ServiceFabric.Services/3.3.622": {
-      "sha512": "bbZEBAiFedAhy+XF2tWMjT8dtiHXQGJ7QyjkK8xF+BBlXEqYGVAm7d15RXt8RDMaHWfBNIbj0/P4wieseunMdA==",
+      "sha512": "WduJ0qGS/vSldnukV1zlK2Bv1n3sn1FVR1fOC3r24zuL7GbtFVCGUFIAPYS9M6CDCFpKEU5OzLYLNneppcJDdQ==",
       "type": "package",
       "path": "microsoft.servicefabric.services/3.3.622",
       "files": [
@@ -1724,7 +1724,7 @@
       ]
     },
     "runtime.win-x64.Microsoft.NETCore.App/2.2.0": {
-      "sha512": "hInt04mxFjd/0WvKg4gd1sPjYuzO7GxrBvzVDItIktEYoWSUv9ydypuXF2Ff7T7ZKPNUnF5D/XLvXB+6NII64A==",
+      "sha512": "oFMNWFou9dL+wNl47pZIgNdDO2GYMtKRzFM1D1NKBXyRG8eDIrYs6tr8Whjop5BWlCStl60Vhs006htQk5Q2ww==",
       "type": "package",
       "path": "runtime.win-x64.microsoft.netcore.app/2.2.0",
       "hasTools": true,
@@ -1951,7 +1951,7 @@
       ]
     },
     "runtime.win-x64.Microsoft.NETCore.DotNetAppHost/2.2.0": {
-      "sha512": "m1k+pPLB/dvbZOCyFwHkn2NC3Us0tw2OgfC2QObkukg+BURPnKYZgECl/JDEWlLDd0Jx/2ttTGK2db/QGUKFaA==",
+      "sha512": "DWEVHFfA/XzEvtSsEMtvN5gr0UYi9cdx9fsUpDzJFehepM/xMJWhCgQHkvpVZCjB9qULepsI3Ow4UO7YpuxB7w==",
       "type": "package",
       "path": "runtime.win-x64.microsoft.netcore.dotnetapphost/2.2.0",
       "files": [
@@ -1966,7 +1966,7 @@
       ]
     },
     "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy/2.2.0": {
-      "sha512": "MqStmGvavBb/fXUhdpTMiEOqJgntM/EEyXXIxTPpFxMIiOC7lV1R4dtuy0W3IGQNC1bcPt60YLgUHyFAknM1LA==",
+      "sha512": "BRogN91nVYPu25KIanU4QnXwp9opyzf/bRWq1QthJDi+YwkYPZXDrpBAvuc0cgiDiyMmlEfCbrN9xZ24bW8kig==",
       "type": "package",
       "path": "runtime.win-x64.microsoft.netcore.dotnethostpolicy/2.2.0",
       "files": [
@@ -1981,7 +1981,7 @@
       ]
     },
     "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver/2.2.0": {
-      "sha512": "hESCMixutkx3K3aGuc+DaS8qua2CF9qqGbwu6gY0bfm+igN7g1lM/j2//Qi8UbnOKqLshX4j8Sv+52WAXVJHkA==",
+      "sha512": "+Xbr0fiyS4/TVtWa9f/f8JGSHGTXEbnYfuiRnzO0/Gyet6PdSekQ+tdZPIvRSmLwD4LdHRR9lBIdsB41Sc+WuQ==",
       "type": "package",
       "path": "runtime.win-x64.microsoft.netcore.dotnethostresolver/2.2.0",
       "files": [
@@ -2003,23 +2003,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\toddbadams\\.nuget\\packages\\": {},
+    "C:\\Users\\toddb\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\az300\\service-fabric\\service-fabric-app\\Stateless1\\Stateless1.csproj",
+      "projectUniqueName": "c:\\projects\\az300\\containers\\service-fabric-app\\Stateless1\\Stateless1.csproj",
       "projectName": "Stateless1",
-      "projectPath": "C:\\code\\az300\\service-fabric\\service-fabric-app\\Stateless1\\Stateless1.csproj",
-      "packagesPath": "C:\\Users\\toddbadams\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\az300\\service-fabric\\service-fabric-app\\Stateless1\\obj\\",
+      "projectPath": "c:\\projects\\az300\\containers\\service-fabric-app\\Stateless1\\Stateless1.csproj",
+      "packagesPath": "C:\\Users\\toddb\\.nuget\\packages\\",
+      "outputPath": "c:\\projects\\az300\\containers\\service-fabric-app\\Stateless1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\toddbadams\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\toddb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
       ],
