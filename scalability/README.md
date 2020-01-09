@@ -1,4 +1,5 @@
 # Scalability
+
 [Scalability](https://docs.microsoft.com/en-us/azure/architecture/guide/pillars#scalability) is the ability of a system to handle increased load. Two main ways to scale:
 
 |             | Horizontal                                        | Vertical                                                        |
@@ -17,8 +18,7 @@
 - [CDN](https://docs.microsoft.com/en-us/azure/architecture/best-practices/cdn)
 - [Data partitioning](https://docs.microsoft.com/en-us/azure/architecture/best-practices/data-partitioning)
 
-
-# Common elastic patterns
+## Common elastic patterns
 
 [common cloud architecture patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
 
@@ -29,16 +29,16 @@ A primary advantage of the cloud is elastic scaling. Types of scaling requiremen
 - **Unpredictable bursting**. Bursts correlate with unexpected or unplanned peaks in demand. 
 - **Predictable bursting**. Bursts can be mapped to specific trends that are planned and well known. 
 
+## Transient errors
 
-# Transient errors
 An application can handle transient failures using:
 
 - **Cancel**. fault indicates the failure isn't transient, cancel the operation and report an exception. 
 - **Retry**. If fault reported is unusual or rare, retry the failing request again immediately.
 - **Retry after a delay**. If fault caused by one of the more commonplace connectivity or busy failures, wait for a suitable amount of time before retrying the request.
 
+## App Service Plan
 
-# App Service Plan
 Auto-scale metrics available on an App Service plan instance:
 
 - **CPU**. The average amount of CPU time used across all instances of the plan
