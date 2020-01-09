@@ -51,12 +51,14 @@ This repo contains my notes while studing for the [AZ-300](https://www.microsoft
 [![AZ-300 Technologies](http://img.youtube.com/vi/u1myyD_cGVQ/0.jpg)](http://www.youtube.com/watch?v=u1myyD_cGVQ)
 
 # Objectives
+**The content of this exam was updated on December 4, 2019**
+[Exam AZ-300: Microsoft Azure Architect Technologies – Skills Measured](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3VzwB)
 
-## Deploy and Configure Infrastructure (25-30%)
-Analyze resource utilization and consumption
-1. [Configure diagnostic settings on resources](http://bit.ly/2NoiuHA)
+## Deploy and Configure Infrastructure (40-45%)
+✔️Analyze resource utilization and consumption
+1. [Configure diagnostic settings on resources](https://docs.microsoft.com/en-gb/azure/azure-monitor/platform/platform-logs-overview#resource-diagnostic-settings)
 1. [Create baseline for resources](http://bit.ly/2NtxyUp)
-1. [Create and rest alerts](http://bit.ly/2LgQDMe)
+1. [Create and rest alerts](https://docs.microsoft.com/en-gb/azure/azure-monitor/platform/alerts-metric)
 1. [Analyze alerts across subscription](http://bit.ly/2O04aWG)
 1. [Analyze metrics across subscription](http://bit.ly/2mnXKUQ)
 1. [Create action groups](http://bit.ly/2JuB1Qh)
@@ -64,23 +66,30 @@ Analyze resource utilization and consumption
 1. [Monitor spend](http://bit.ly/2LtfTvD)
 1. [Report on spend](http://bit.ly/2LgOuju)
 1. [Utilize Log Search query functions](http://bit.ly/2KZvEy5)
-1. [View alerts in Log Analytics](http://bit.ly/2JB7Gnm)
+1. [View alerts in Monitor logs](http://bit.ly/2JB7Gnm)
+1. [visualize diagnostics data using Azure Monitor Workbooks](#)
 
 ✔️ Create and Configure storage accounts
 1. [Configure network access to the storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security)  1. virtual networks
 1. [Create and configure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account)
 1. [Generate shared access signature](https://docs.microsoft.com/en-gb/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+1. [implement Azure AD authentication for storage](#)
 1. [Install and use Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 1. [Manage access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide)
 1. [Monitor activity log by using Log Analytics](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitoring-diagnosing-troubleshooting)
 1. [Implement Azure storage replication](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
+1. [implement Azure storage account failover](#)
 
-Create and configure a Virtual Machine (VM) for Windows and Linux
-1. [Configure high availability](http://bit.ly/2y0f7AC)
-1. [Configure monitoring, networking, storage, and virtual machine size](http://bit.ly/2xYN3xA)
-1. [Deploy and configure scale sets](http://bit.ly/2xYO5cW)
+✔️ Create and configure a Virtual Machine (VM) for Windows and Linux
+1. [Configure high availability](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)  legal/sla/virtual-machines/v1_8/)  
+1. [Configure monitoring](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-monitor)
+1. [Configure networking](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-virtual-network)
+1. [Configure storage](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/attach-managed-disk-portal)
+1. [Configure  virtual machine size](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
+1. [implement dedicated hosts](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/dedicated-hosts-portal)
+1. [Deploy and configure scale sets](https://docs.microsoft.com/en-gb/azure/virtual-machine-scale-sets/overview)
 
-Automate deployment of Virtual Machines (VMs)
+✔️ Automate deployment of Virtual Machines (VMs)
 1. [Modify Azure Resource Manager (ARM) template](http://bit.ly/2y0Nzej)
 1. [Configure location of new VMs](http://bit.ly/2xYOxb8)
 1. [Configure VHD template](http://bit.ly/2y0frPQ)
@@ -88,13 +97,13 @@ Automate deployment of Virtual Machines (VMs)
 1. [Save a deployment as an ARM template](http://bit.ly/2y2TmjM)
 1. Deploy [Windows](Http://bit.ly/2xZkJuN) and [Linux VMs](http://bit.ly/2y2TdfU)
 
-Create connectivity between virtual networks
+✔️ Create connectivity between virtual networks
 1. [Create and configure VNET peering](http://bit.ly/2NqMu5P)
 1. [Create and configure VNET to VNET](http://bit.ly/2uwAd8J)
 1. [Verify virtual network connectivity](http://bit.ly/2muFbP7)
 1. [create virtual network gateway](http://bit.ly/2LpVkzQ)
 
-Implement and manage virtual networking
+✔️ Implement and manage virtual networking
 1. [Configure private and public IP addresses, network routes, network interface, subnets, and virtual network](http://bit.ly/2xUCgUQ)
 
 Manage Azure Active Directory (AD)
