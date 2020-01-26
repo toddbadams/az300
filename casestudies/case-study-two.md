@@ -43,3 +43,16 @@
 - create a hybrid identity model along with a Microsoft Office 365 deployment
 - Users need to always authenticate using their ops.acme.com UPN identity
 - Directory Synchronization must be established between Azure AD and the ops.acme.com forest. This synchronization must not be affected by a link failure between Azure and the on-premise network.
+
+
+## Relevant Reading
+- [AD connect topologies](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-topologies)
+- [AD custom domains](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+- [AD baseline policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-baseline-protection)
+- [SQL service tiers](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore?tabs=azure-portal)
+- [SQL import](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import?tabs=azure-powershell)
+- [Web App Scale Up](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-up)
+- [Traffic Manager Routing](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#priority)
+- [App Service](https://docs.microsoft.com/en-us/azure/app-service/)
+- [SQL long term retention](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-long-term-retention)
+- [App Service plan hosting](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans)
