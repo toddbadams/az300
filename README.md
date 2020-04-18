@@ -82,13 +82,13 @@ This repo contains my notes while studing for the [AZ-300](https://www.microsoft
 1. [implement Azure storage account failover](#)
 
 ### Create and configure a Virtual Machine (VM) for Windows and Linux
-1. [Configure high availability](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)  legal/sla/virtual-machines/v1_8/)  
-1. [Configure monitoring](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-monitor)
-1. [Configure networking](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-virtual-network)
-1. [Configure storage](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/attach-managed-disk-portal)
-1. [Configure  virtual machine size](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
-1. [implement dedicated hosts](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/dedicated-hosts-portal)
-1. [Deploy and configure scale sets](https://docs.microsoft.com/en-gb/azure/virtual-machine-scale-sets/overview)
+1. [Configure high availability](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)  ([SLA for VMs](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/))
+2. [Configure monitoring](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-monitor)
+3. [Configure networking](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-virtual-network)
+4. [Configure storage](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/attach-managed-disk-portal)
+5. [Configure  virtual machine size](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/tutorial-automate-vm-deployment)
+6. [implement dedicated hosts](https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/dedicated-hosts-portal)
+7. [Deploy and configure scale sets](https://docs.microsoft.com/en-gb/azure/virtual-machine-scale-sets/overview)
 
 ### Automate deployment of Virtual Machines (VMs)
 1. [Modify Azure Resource Manager (ARM) template](http://bit.ly/2y0Nzej)
@@ -125,7 +125,7 @@ Implement and manage hybrid identities
 1. [Install and configure Azure AD Connect](http://bit.ly/2Jwvqce)
 1. [Configure federation and single sign-on](http://bit.ly/2zNeiPM)
 1. [Manage Azure AD Connect](http://bit.ly/2LqmoiE)
-1. [Manage password sync and writeback](http://bit.ly/2zOrKCT
+1. [Manage password sync and writeback](http://bit.ly/2zOrKCT)
 
 ## Implement Workloads and Security (20-25%)
 
@@ -163,7 +163,7 @@ Manage role-based access control (RBAC)
 1. [Configure management access to Azure](http://bit.ly/2LK7Evi)
 1. [Troubleshoot RBAC](http://bit.ly/2FvkFsf)
 1. [Implement RBAC policies](http://bit.ly/2Nwo4rB)
-1. [Assign RBAC roles](http://bit.ly/2NoMTFy
+1. [Assign RBAC roles](http://bit.ly/2NoMTFy)
 
 Implement Multi-Factor Authentication (MFA)
 1. [Enable MFA for an Azure tenant](http://bit.ly/2Ntkuy9)
@@ -185,7 +185,7 @@ Create web apps by using PaaS
 Design and develop apps that run in containers
 1. [Configure diagnostic settings on resources](http://bit.ly/2FvtylC)
 1. [Create a container image by using a Docker file](http://bit.ly/2FuoT3a)
-1. [Create an Azure Container Service (ACS/AKS)](http://bit.ly/2Fueogh http://bit.ly/2FueO6m)
+1. Create an Azure Container Service ([ACS](http://bit.ly/2Fueogh)/[AKS](http://bit.ly/2FueO6m))
 1. [Publish an image to the Azure Container Registry](http://bit.ly/2FsNnKh)
 1. [Implement an application that runs on an Azure Container Instance](http://bit.ly/2FtpMsU)
 1. [Manage container settings by using code](http://bit.ly/2Fup4LS)
