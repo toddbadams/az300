@@ -19,9 +19,9 @@ Azure ensures that the VMs you place within an Availability Set run across multi
 
 |                   | Uptime %           | Downtime min/month | Downtime hr/yr |
 |-------------------|--------------------|--------------------|--------|
-| VM                | 99.9  (three nines)        | 43             | 8      |
-| Availability Set  | 99.95 (three and one half nines)     21             | 4      |
-| Availability Zone | 99.99 (four nines)         | 4.3            | 52 min |
+| VM                | 99.9  (three nines)        | 44             | 9      |
+| Availability Set  | 99.95 (three and one half nines)     22             | 4.4      |
+| Availability Zone | 99.99 (four nines)         | 4.4            | 53 min |
 
 [VM SLA](https://azure.microsoft.com/en-gb/support/)
 [Wikipedia High Availability](https://en.wikipedia.org/wiki/High_availability)
